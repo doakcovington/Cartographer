@@ -19,7 +19,6 @@ fn menu() {
     io::stdin()
         .read_line(&mut selection)
         .expect("Failed to process selection");
-    println!("You guessed: {}", selection);
     let input: u32 = selection
         .trim()
         .parse()
@@ -32,7 +31,11 @@ fn menu() {
 }
 
 fn start_game() {
-    println!("Howdy from start game")
+    game_board();
 }
 
-
+fn game_board() {
+    let mut top_row = println!("[ ][ ][ ]");
+    let mut middle_row = println!("[ ][ ][ ]");
+    let mut bottom_row = println!("[ ][ ][ ]");
+}
