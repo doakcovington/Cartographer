@@ -35,7 +35,15 @@ fn start_game() {
 }
 
 fn game_board() {
-    let mut top_row = println!("[ ][ ][ ]");
-    let mut middle_row = println!("[ ][ ][ ]");
-    let mut bottom_row = println!("[ ][ ][ ]");
+    let mut game_state = ["","","","","","","","",""];
+    let mut n = 1;
+    while n <= game_state.len() {
+        if n % 3 != 0 {
+            print!("[ ]");
+            n += 1;
+        } else {
+            println!("[ ]");
+            n += 1;
+        }
+    }
 }
