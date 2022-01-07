@@ -35,6 +35,7 @@ fn start_game() {
 }
 
 fn game_board() {
+    let mut game_state = ["","","","","","","","",""];
     let mut top_row = println!("[ ][ ][ ]");
     let mut middle_row = println!("[ ][ ][ ]");
     let mut bottom_row = println!("[ ][ ][ ]");
