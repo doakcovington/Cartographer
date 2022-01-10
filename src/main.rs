@@ -3,6 +3,7 @@
 // Christmas 2021
 use std::io;
 use std::process;
+use rand::Rng;
 
 fn main() {
     menu()
@@ -31,13 +32,33 @@ fn menu() {
 }
 
 fn start_game() {
-    game_board();
+    game_state();
 }
 
-fn game_board() {
-    let mut game_state = ["","","","","","","","",""];
+fn game_state() {
+    let mut game_board = ["","","","","","","","",""];
+    let mut planets = ["","","","","","","","",""];
+    let mut i = 0;
+    while i < game_board.len() / 3 {
+        let mut rng = rand::thread_rng();
+        let mut space = rng.gen_range(0..game_board.len());
+        if game_board[space] == "" {
+            planets[space] = "X";
+            i += 1;
+        } else if  space < game_board.len() && game_board[space] == "" {
+            game_board[space + 1] = "X";
+            i += 1;
+        } else if  space > game_board.len() && game_board[space] == "" {
+            game_board[space + 1] = "X";
+            i += 1;
+        } else {
+            i += 1;
+        }
+    }
+
+    let mut game_board = ["","","","","","","","",""];
     let mut n = 1;
-    while n <= game_state.len() {
+    while n <= game_board.len() {
         if n % 3 != 0 {
             print!("[ ]");
             n += 1;
